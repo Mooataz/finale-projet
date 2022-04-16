@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import { BrowserRouter as Router , Routes, Route} from 'react-router-dom';
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import List from './components/Models/List';
+import Navigation from './components/Navigation';
+import Price from './components/Price/Price';
+import UpdateList from './components/Update/updateList';
+import ChangeList from './components/changeList/ChangeList';
+import Prix from './components/Models/Modele'
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"> 
+<Router>
+
+<Navigation />
+
+
+  <Routes>
+      <Route path='/' element={<List />} />
+      <Route path='/Price/:id' element={<Price />} />
+      <Route path='/Add' element={<UpdateList />} />
+      <Route path='/Modif' element={<ChangeList />} />
+  </Routes>
+</Router>
+
+
+
     </div>
   );
 }
